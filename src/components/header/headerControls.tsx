@@ -1,13 +1,16 @@
 import React from 'react';
+import styles from './HeaderControls.module.css'; // Import CSS Module
 
-// Placeholder icons/text - we'll replace these later
-const LanguageSwitcher: React.FC = () => <div style={{ cursor: 'pointer' }}>🇬🇪 ▼</div>; // Placeholder flag & dropdown arrow
-const UserAuth: React.FC = () => <div style={{ cursor: 'pointer' }}>👤 შესვლა</div>; // Placeholder icon & Login text
-const CartIcon: React.FC = () => <div style={{ cursor: 'pointer' }}>🛒 (0)</div>; // Placeholder cart & count
+// Placeholder icons/text - consider making these proper components later
+const LanguageSwitcher: React.FC = () => <div className={styles.controlItem}>🇬🇪 ▼</div>;
+const UserAuth: React.FC = () => <div className={styles.controlItem}>👤 შესვლა</div>;
+const CartIcon: React.FC = () => <div className={styles.controlItem}>🛒 (0)</div>;
 
 const HeaderControls: React.FC = () => {
   return (
-    <div className="header-controls" style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+    // Apply container style
+    <div className={styles.controlsContainer}>
+      {/* The individual components now have the controlItem style */}
       <LanguageSwitcher />
       <UserAuth />
       <CartIcon />

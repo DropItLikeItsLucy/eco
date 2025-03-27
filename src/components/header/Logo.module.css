@@ -1,0 +1,13 @@
+/* src/components/Header/Logo.module.css */
+.logoLink {
+    text-decoration: none;
+    color: #2c7a4d; /* Original green color */
+    font-weight: bold;
+    font-size: 1.5rem;
+    /* Add any other logo styling here */
+  }
+  
+  .logoImage { /* Example if you use an image */
+     height: 40px;
+     display: block; /* Good practice for images */
+  }

@@ -1,21 +1,21 @@
 import React from 'react';
+import styles from './Navigation.module.css'; // Import CSS Module
 
-// We'll make these links dynamic later
 const navItems = [
-  { label: 'მთავარი', path: '/' },       // Home
-  { label: 'მაღაზია', path: '/shop' },    // Shop
-  { label: 'პარტნიორები', path: '/partners' }, // Partners (Assuming, based on original image text)
-  { label: 'ჩვენ შესახებ', path: '/about' }, // About Us
-  { label: 'კონტაქტი', path: '/contact' }, // Contact
+  { label: 'მთავარი', path: '/' },
+  { label: 'მაღაზია', path: '/shop' },
+  { label: 'პარტნიორები', path: '/partners' },
+  { label: 'ჩვენ შესახებ', path: '/about' },
+  { label: 'კონტაქტი', path: '/contact' },
 ];
 
 const Navigation: React.FC = () => {
   return (
     <nav>
-      <ul style={{ listStyle: 'none', display: 'flex', margin: 0, padding: 0, gap: '1.5rem' }}> {/* Basic flex layout */}
+      <ul className={styles.navList}> {/* Apply style */}
         {navItems.map((item) => (
-          <li key={item.label}>
-            <a href={item.path} style={{ textDecoration: 'none', color: '#333' }}>
+          <li key={item.label} className={styles.navItem}> {/* Apply style */}
+            <a href={item.path}> {/* Link styling is handled by CSS targeting 'a' */}
               {item.label}
             </a>
           </li>

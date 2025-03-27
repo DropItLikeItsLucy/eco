@@ -1,0 +1,21 @@
+/* src/components/Header/HeaderControls.module.css */
+.controlsContainer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .controlItem { /* Common style for individual controls */
+    cursor: pointer;
+    display: flex; /* If icon and text are together */
+    align-items: center;
+    gap: 0.3rem; /* Space between icon and text */
+    color: #333;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .controlItem:hover {
+      color: #2c7a4d; /* Green hover for controls too */
+  }
+  
+  /* Add specific styles if needed, e.g., for the language dropdown arrow */

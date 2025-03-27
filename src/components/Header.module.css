@@ -1,0 +1,15 @@
+/* src/components/Header.module.css */
+.headerContainer {
+    display: flex;
+    justify-content: space-between; /* Pushes Logo/Nav left, Controls right */
+    align-items: center;           /* Vertically center items */
+    padding: 1rem 2rem;           /* Add some padding (vertical, horizontal) */
+    border-bottom: 1px solid #eee; /* Add a subtle bottom border */
+    background-color: #ffffff;    /* White background */
+  }
+  
+  .leftSection {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Space between Logo and Navigation */
+  }
