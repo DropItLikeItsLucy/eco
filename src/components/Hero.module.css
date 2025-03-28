@@ -1,0 +1,88 @@
+/* src/components/Hero.module.css */
+
+.heroSection {
+    position: relative; /* Needed for absolute positioning of content */
+    height: 60vh; /* Adjust height as needed, vh = viewport height */
+    background-color: #e2f0e9; /* Placeholder background color */
+    /* To use an image: */
+    background-image: url('../assets/hero-bg.jpg'); /* Adjust path if you add an image */
+    background-size: cover; /* Scale the image nicely */
+    background-position: 0% 90%;
+    display: flex; /* Use flexbox to center content vertically and horizontally */
+    justify-content: flex-start;    
+    align-items: center;
+    text-align: center; /* Center text within the content block */
+    color: #333; /* Default text color (adjust if image is dark) */
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
+  /* Optional: Add an overlay for better text readability on busy images */
+  .heroSection::before {
+    content: '';
+    position: absolute;
+    top: 10;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.3); /* Light overlay, adjust opacity */
+    /* Use a dark overlay for light text: */
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    z-index: 1; /* Place overlay above background, below content */
+  }
+  
+  
+  .heroContent {
+    position: relative; /* Ensure content is above the overlay */
+    z-index: 2;
+    max-width: 600px; /* Limit content width if needed */
+    padding: 2rem;
+    text-align: left;
+    /* Background for the content block itself, if desired */
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border-radius: 8px; */
+  }
+  
+  .heroBrand {
+    /* Style for the "eco generation" text */
+    font-size: 2.5rem; /* Example size */
+    color: #2c7a4d; /* Green color like the logo */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+     /* If using a dark background/overlay, make this white/light */
+     /* color: #ffffff; */
+  }
+  
+  .heroTagline {
+    font-size: 1.8rem; /* Example size */
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    color: #fff;
+     /* If using a dark background/overlay, make this white/light */
+     /* color: #f0f0f0; */
+  }
+  
+  .heroButton {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    background-color: #ffffff; /* White background like the original button */
+    color: #2c7a4d; /* Green text */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .heroButton:hover {
+    background-color: #f8f8f8; /* Slightly darker on hover */
+     /* Or maybe invert colors */
+     /* background-color: #2c7a4d; */
+     /* color: #ffffff; */
+  }
+  
+  /* Style for the logo image if you use one */
+  .heroLogo {
+     max-width: 200px; /* Adjust as needed */
+     /* margin-bottom: 1rem; */
+  }
