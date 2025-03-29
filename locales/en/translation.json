@@ -28,5 +28,8 @@
   "contactEmailLabelForm": "Your Email", 
   "contactMessageLabel": "Your Message",
   "contactSendButton": "Send Message",
+  "contactSendingButton": "Sending Message",
+  "contactSuccessMessage": "Message sent successfuly",
+  "contactErrorMessage": "Error while sending message",
   "contactFormSubmissionAlert": "Thank you! Your message has been received (simulation)."
 }

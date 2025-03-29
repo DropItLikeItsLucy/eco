@@ -1,14 +1,19 @@
 // src/pages/ContactPage.tsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react'; // Add useRef
 import { useTranslation } from 'react-i18next';
-// Import icons (choose appropriate ones)
-import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa'; // Example: Font Awesome 5
-// Or from Fa6: import { FaMapLocationDot, FaPhone, FaEnvelope } from 'react-icons/fa6';
+import emailjs from '@emailjs/browser'; // Import EmailJS
+import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
+import styles from './ContactPage.module.css';
 
-import styles from './ContactPage.module.css'; // We will create this file
+const SERVICE_ID = 'service_5lekq59'; // Replace with your EmailJS Service ID
+const TEMPLATE_ID = 'template_p67mj9o'; // Replace with your EmailJS Template ID
+const PUBLIC_KEY = 'Erz84pBlhYJsfHTBk';   // Replace with your EmailJS Public Key
 
 const ContactPage: React.FC = () => {
   const { t } = useTranslation();
+  const form = useRef<HTMLFormElement>(null); // Ref for the form element
+  const [isSubmitting, setIsSubmitting] = useState(false); // Loading state
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null); // Feedback state
 
   // State for form fields
   const [formData, setFormData] = useState({
@@ -29,12 +34,23 @@ const ContactPage: React.FC = () => {
   // Handle form submission (placeholder)
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: Implement actual form submission logic here
-    // (e.g., send data to an API endpoint, Netlify Forms, EmailJS, etc.)
-    console.log('Form data submitted:', formData);
-    alert(t('contactFormSubmissionAlert')); // Simple feedback using translation key
-    // Optionally clear form after submission
-    setFormData({ name: '', email: '', message: '' });
+    if (!form.current) return; // Type guard for ref
+
+    setIsSubmitting(true); // Set loading state
+    setSubmitStatus(null); // Reset previous status
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      .then((result) => {
+          console.log('EmailJS Success:', result.text);
+          setSubmitStatus('success');
+          setFormData({ name: '', email: '', message: '' }); // Clear form
+      }, (error) => {
+          console.error('EmailJS Error:', error.text);
+          setSubmitStatus('error');
+      })
+      .finally(() => {
+          setIsSubmitting(false); // Reset loading state regardless of outcome
+      });
   };
 
   return (
@@ -77,7 +93,7 @@ const ContactPage: React.FC = () => {
         {/* Column 2: Contact Form */}
         <div className={styles.formSection}>
           <h2>{t('contactSendUsMessage')}</h2> {/* Use translation key */}
-          <form onSubmit={handleSubmit} className={styles.contactForm}>
+          <form ref={form} onSubmit={handleSubmit} className={styles.contactForm}>
             <div className={styles.formGroup}>
               <label htmlFor="name">{t('contactNameLabel')}</label> {/* Use key */}
               <input
@@ -111,9 +127,11 @@ const ContactPage: React.FC = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit" className={styles.submitButton}>
-              {t('contactSendButton')} {/* Use key */}
+            <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+                {isSubmitting ? t('contactSendingButton') : t('contactSendButton')}
             </button>
+            {submitStatus === 'success' && <p className={styles.successMessage}>{t('contactSuccessMessage')}</p>}
+            {submitStatus === 'error' && <p className={styles.errorMessage}>{t('contactErrorMessage')}</p>}
           </form>
         </div>
       </div>

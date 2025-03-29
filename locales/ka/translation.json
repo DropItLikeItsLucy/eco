@@ -28,5 +28,8 @@
   "contactEmailLabelForm": "თქვენი ელ.ფოსტა",
   "contactMessageLabel": "თქვენი შეტყობინება",
   "contactSendButton": "გაგზავნა",
+  "contactSendingButton": "შეტყობინება იგზავნება",
+  "contactSuccessMessage": "შეტყობინება წარმატებით გაიგზავნა",
+  "contactErrorMessage": "შეცდომა შეტყობინების გაგზავნისას",
   "contactFormSubmissionAlert": "გმადლობთ! თქვენი შეტყობინება მიღებულია (სიმულაცია)."
   }
