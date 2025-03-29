@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Hero.module.css'; // We'll create this next
-
+import { useTranslation, Trans } from 'react-i18next';
 // Assuming you might add the logo/image later in assets
 import heroBackground from '../assets/hero-bg.jpg'; // Example path
 import logoImage from '../assets/logo.png'; // Example path
 
 const Hero: React.FC = () => {
+  const { t } = useTranslation();
   return (
     // We'll add the background image via CSS
     <section className={styles.heroSection}>
@@ -16,14 +17,17 @@ const Hero: React.FC = () => {
 
         {/* Placeholder for the tagline */}
         <p className={styles.heroTagline}>
-        იზრუნე ეკოლოგიაზე <br /> ჩვენთან ერთად
+          <Trans i18nKey="heroTagline">
+            Energy efficiency <br/> with us
+          </Trans>
+        {/* იზრუნე ეკოლოგიაზე <br /> ჩვენთან ერთად */}
           {/* (Assuming this is the text from the image - replace if needed) */}
           {/* Using <br /> for line break as seen in the image */}
         </p>
 
         {/* Placeholder for the Call-to-Action button */}
         <button className={styles.heroButton}>
-          შეძენა {/* (Assuming "Learn More" - replace if needed) */}
+        {t('heroBuy')} {/* (Assuming "Learn More" - replace if needed) */}
         </button>
       </div>
     </section>

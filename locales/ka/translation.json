@@ -1,0 +1,21 @@
+{
+    "navHome": "მთავარი",
+    "navShop": "მაღაზია",
+    "navPartners": "პარტნიორები",
+    "navAbout": "ჩვენ შესახებ",
+    "navContact": "კონტაქტი",
+    "login": "შესვლა",
+    "heroBrand": "eco generation",
+    "heroTagline": "იზრუნე ეკოლოგიაზე <1/> ჩვენთან ერთად",
+    "heroButton": "გაიგე მეტი",
+    "heroBuy": "შეძენა",
+    "footerCopyright": "© {{year}} Eco Generation. ყველა უფლება დაცულია.",
+    "footerTermsLink": "საიტის მოხმარების პირობები",
+    "pageTitleHome": "მთავარი გვერდი",
+    "pageTitleShop": "მაღაზია",
+    "pageTitlePartners": "პარტნიორები",
+    "pageTitleAbout": "ჩვენ შესახებ",
+    "pageTitleContact": "კონტაქტი",
+    "pageTitleTerms": "საიტის მოხმარების პირობები",
+    "termsContentPlaceholder": "წესები და პირობები..."
+  }

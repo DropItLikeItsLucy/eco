@@ -1,20 +1,46 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom'; // 1. Import Routes and Route
 import './App.css';
 
 // Import the components we just created
 import Header from './components/header';
-import Hero from './components/hero';
+// import Hero from './components/Hero';
 import Footer from './components/footer';
 
+import HomePage from './pages/HomePage';
+import TermsPage from './pages/TermsPage';
+import ShopPage from './pages/ShopPage';
+import PartnersPage from './pages/PartnersPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
 const App: React.FC = () => {
   return (
     <div className="App">
-      {/* Render the components like HTML tags */}
+      {/* Header appears on all pages */}
       <Header />
-      <main> {/* It's good practice to wrap main page content in a <main> tag */}
-        <Hero />
-        {/* Other homepage sections would go here later */}
+
+      <main>
+        {/* 2. Define the routes */}
+        <Routes>
+          {/* Route for the homepage */}
+          <Route path="/" element={<HomePage />} />
+
+          {/* Route for the terms page */}
+          <Route path="/terms" element={<TermsPage />} />
+
+          {/* --- Add routes for the new pages --- */}
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/partners" element={<PartnersPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          {/* --- --- */}
+
+          {/* Optional: Add a 404 Not Found route */}
+          {/* <Route path="*" element={<NotFoundPage />} /> */}
+        </Routes>
       </main>
+
+      {/* Footer appears on all pages */}
       <Footer />
     </div>
   );

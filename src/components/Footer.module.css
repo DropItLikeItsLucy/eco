@@ -1,0 +1,72 @@
+/* src/components/Footer.module.css */
+
+.footerContainer {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 1.5rem 2rem; /* Vertical and horizontal padding */
+    border-top: 1px solid #e9ecef; /* Subtle top border */
+    margin-top: 0rem; /* Add some space above the footer */
+    color: #6c757d; /* Grey text color */
+    font-size: 0.9rem;
+  }
+  
+  .footerContent {
+    max-width: 1200px; /* Limit width and center content */
+    margin: 0 auto; /* Center the content block */
+    display: flex;
+    justify-content: space-between; /* Pushes copyright left, social right */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 1rem; /* Add gap for wrapping */
+  }
+  
+  .copyright {
+    /* Minor adjustment: ensure items align nicely */
+    display: flex; /* Use flex to align items on the baseline */
+    align-items: center; /* Align items vertically */
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 0.5rem; /* Add gap between items if they wrap */
+    text-align: center; /* Center text if it wraps */
+    flex-grow: 1;
+  }
+  
+  @media (min-width: 576px) { /* On larger screens, align text left */
+     .copyright {
+       text-align: left;
+       flex-grow: 0; /* Don't let it grow unnecessarily */
+     }
+     .footerContent {
+       justify-content: space-between; /* Ensure space-between layout */
+     }
+  }
+  .footerLink {
+    color: inherit; /* Use the default footer text color */
+    text-decoration: none; /* Remove default underline */
+    transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+  }
+  
+  .footerLink:hover {
+    color: #2c7a4d; /* Brand green on hover */
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  /* Style for the optional separator */
+  .separator {
+    margin: 0 0.5rem; /* Add space around the separator */
+    /* Or remove margin and add padding to .footerLink if preferred */
+    color: inherit; /* Use the default footer text color */
+  }
+  .socialIcons {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between icons */
+  }
+  
+  .iconLink {
+    color: #6c757d; /* Inherit color */
+    font-size: 1.2rem; /* Make icons slightly larger */
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .iconLink:hover {
+    color: #2c7a4d; /* Use brand green on hover */
+  }

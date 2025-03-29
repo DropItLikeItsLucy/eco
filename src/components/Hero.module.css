@@ -7,7 +7,7 @@
     /* To use an image: */
     background-image: url('../assets/hero-bg.jpg'); /* Adjust path if you add an image */
     background-size: cover; /* Scale the image nicely */
-    background-position: 0% 90%;
+    background-position: 10% 90%;
     display: flex; /* Use flexbox to center content vertically and horizontally */
     justify-content: flex-start;    
     align-items: center;
@@ -36,6 +36,7 @@
     position: relative; /* Ensure content is above the overlay */
     z-index: 2;
     max-width: 600px; /* Limit content width if needed */
+    min-width: 900px;
     padding: 2rem;
     text-align: left;
     /* Background for the content block itself, if desired */

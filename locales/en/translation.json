@@ -1,0 +1,21 @@
+{
+    "navHome": "Home",
+    "navShop": "Shop",
+    "navPartners": "Partners",
+    "navAbout": "About Us",
+    "navContact": "Contact",
+    "login": "Login",
+    "heroBrand": "eco generation",
+    "heroTagline": "Ecological efficiency <1/> with us",
+    "heroButton": "Learn More",
+    "heroBuy": "Buy now",
+    "footerCopyright": "© {{year}} Eco Generation. All rights reserved.",
+    "footerTermsLink": "Terms and Conditions",
+    "pageTitleHome": "Homepage",
+    "pageTitleShop": "Shop",
+    "pageTitlePartners": "Partners",
+    "pageTitleAbout": "About Us",
+    "pageTitleContact": "Contact",
+    "pageTitleTerms": "Terms and Conditions",
+    "termsContentPlaceholder": "Terms content will go here..."
+}
