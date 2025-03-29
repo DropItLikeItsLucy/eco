@@ -17,5 +17,16 @@
     "pageTitleAbout": "About Us",
     "pageTitleContact": "Contact",
     "pageTitleTerms": "Terms and Conditions",
-    "termsContentPlaceholder": "Terms content will go here..."
+    "termsContentPlaceholder": "Terms content will go here...",
+  "contactGetInTouch": "Get in Touch",
+  "contactIntroText": "Have questions or want to discuss a project? Reach out to us!",
+  "contactAddress": "Tbilisi, Georgia, Vardevani st. 2 0178",
+  "contactPhoneLabel": "Phone",
+  "contactEmailLabel": "Email",
+  "contactSendUsMessage": "Send Us a Message",
+  "contactNameLabel": "Your Name",
+  "contactEmailLabelForm": "Your Email", 
+  "contactMessageLabel": "Your Message",
+  "contactSendButton": "Send Message",
+  "contactFormSubmissionAlert": "Thank you! Your message has been received (simulation)."
 }

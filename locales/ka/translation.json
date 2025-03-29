@@ -17,5 +17,16 @@
     "pageTitleAbout": "ჩვენ შესახებ",
     "pageTitleContact": "კონტაქტი",
     "pageTitleTerms": "საიტის მოხმარების პირობები",
-    "termsContentPlaceholder": "წესები და პირობები..."
+    "termsContentPlaceholder": "წესები და პირობები...",
+  "contactGetInTouch": "დაგვიკავშირდით",
+  "contactIntroText": "გაქვთ კითხვები ან გსურთ პროექტის განხილვა? დაგვიკავშირდით!",
+  "contactAddress": "თბილისი, საქართველო, ვარდევანის ქ. 2 0178",
+  "contactPhoneLabel": "ტელეფონი",
+  "contactEmailLabel": "ელ.ფოსტა",
+  "contactSendUsMessage": "მოგვწერეთ შეტყობინება",
+  "contactNameLabel": "თქვენი სახელი",
+  "contactEmailLabelForm": "თქვენი ელ.ფოსტა",
+  "contactMessageLabel": "თქვენი შეტყობინება",
+  "contactSendButton": "გაგზავნა",
+  "contactFormSubmissionAlert": "გმადლობთ! თქვენი შეტყობინება მიღებულია (სიმულაცია)."
   }
