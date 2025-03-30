@@ -17,6 +17,18 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+.App {
+  display: flex;           /* 1. Establish flex container */
+  flex-direction: column;  /* 2. Arrange children vertically */
+  min-height: 100vh;       /* 3. Ensure container is at least full viewport height */
+  /* min-width: 100vw; */
+}
+
+.App > main {              /* Target the <main> element directly inside .App */
+  flex-grow: 0;            /* 4. Allow the main content area to grow and fill space */
+                           /* This pushes the Footer down */
+}
+
 
 @keyframes logo-spin {
   from {

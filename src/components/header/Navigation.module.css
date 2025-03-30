@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     gap: 1.5rem;
+    min-width: 450px;
   }
   
   .navItem a { /* Target the link inside the list item */
