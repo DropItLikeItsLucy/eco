@@ -5,9 +5,9 @@ import emailjs from '@emailjs/browser'; // Import EmailJS
 import { FaMapMarkerAlt, FaPhone, FaEnvelope } from 'react-icons/fa';
 import styles from './ContactPage.module.css';
 
-const SERVICE_ID = 'service_5lekq59'; // Replace with your EmailJS Service ID
-const TEMPLATE_ID = 'template_p67mj9o'; // Replace with your EmailJS Template ID
-const PUBLIC_KEY = 'Erz84pBlhYJsfHTBk';   // Replace with your EmailJS Public Key
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const ContactPage: React.FC = () => {
   const { t } = useTranslation();
@@ -38,6 +38,13 @@ const ContactPage: React.FC = () => {
 
     setIsSubmitting(true); // Set loading state
     setSubmitStatus(null); // Reset previous status
+
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+        console.error("EmailJS environment variables are not set!");
+        setSubmitStatus('error'); // Indicate configuration error
+        setIsSubmitting(false);
+        return; // Prevent sending
+    }
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
       .then((result) => {

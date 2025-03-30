@@ -1,0 +1,51 @@
+/* src/pages/AboutPage.module.css */
+
+.aboutPageContainer {
+    max-width: 850px; /* Limit content width for readability */
+    margin: 3rem auto; /* Center container, add top/bottom margin */
+    padding: 1rem 2rem; /* Horizontal padding for smaller screens */
+  }
+  
+  .pageTitle {
+    text-align: center;
+    margin-bottom: 3rem; /* Generous space below title */
+    font-size: 2.2rem; /* Adjust size as needed */
+    font-weight: 600;
+    color: #333; /* Standard dark title color */
+    /* Optional: Use green accent */
+    /* color: #2c7a4d; */
+  }
+  
+  .contentSection {
+    /* Styles for the text block */
+    max-width: 700px; /* Slightly narrower width for the text itself */
+    margin: 0 auto; /* Center the text block within the container */
+  }
+  
+  .contentSection p {
+    font-size: 1.05rem; /* Slightly larger base font size for readability */
+    line-height: 1.8; /* Generous line height for easy reading */
+    color: #444; /* Slightly softer text color than pure black */
+    margin-bottom: 1.8rem; /* Good spacing between paragraphs */
+    text-align: left; /* Standard left alignment */
+    /* Optional: Justify text, but can create awkward spacing sometimes */
+    /* text-align: justify; */
+  }
+  
+  /* Ensure the last paragraph doesn't have excessive bottom margin */
+  .contentSection p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Optional Image Section Styling */
+  /* .imageSection {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  
+  .imageSection img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  } */

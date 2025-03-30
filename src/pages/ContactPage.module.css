@@ -123,8 +123,30 @@
     font-weight: bold;
     transition: background-color 0.2s ease;
     align-self: flex-start; /* Align button to the start */
+    margin-bottom: 1rem;
   }
   
   .submitButton:hover {
     background-color: #225e3a; /* Darker green on hover */
+  }
+  .successMessage {
+    color: #28a745; /* Standard success green */
+    background-color: #e9f7ec; /* Light green background */
+    border: 1px solid #c3e6cb; /* Green border */
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    margin-top: 1rem; /* Space above the message */
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .errorMessage {
+    color: #dc3545; /* Standard error red */
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Red border */
+    padding: 0.75rem 1.25rem;
+    border-radius: 4px;
+    margin-top: 1rem; /* Space above the message */
+    text-align: center;
+    font-weight: 500;
   }

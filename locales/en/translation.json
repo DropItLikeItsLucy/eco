@@ -31,5 +31,8 @@
   "contactSendingButton": "Sending Message",
   "contactSuccessMessage": "Message sent successfuly",
   "contactErrorMessage": "Error while sending message",
-  "contactFormSubmissionAlert": "Thank you! Your message has been received (simulation)."
+  "contactFormSubmissionAlert": "Thank you! Your message has been received (simulation).",
+  "aboutParagraph1": "We are innovative company and offer you 100% biosegradable and compostable wooden X-usable cutlery",
+  "aboutParagraph2": "We realize the link between the health of the planet and the disposable products. Every day we work to advance usage of Eco-friendly products.",
+  "aboutParagraph3": "EcoGeneration’s products are certified by international organizations."
 }

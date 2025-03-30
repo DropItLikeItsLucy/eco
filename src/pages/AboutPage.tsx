@@ -1,18 +1,26 @@
 // src/pages/AboutPage.tsx
 import React from 'react';
-import { useTranslation, Trans } from 'react-i18next'; // Import hook
+import { useTranslation } from 'react-i18next';
+import styles from './AboutPage.module.css'; // We will create this
 
 const AboutPage: React.FC = () => {
-  const { t } = useTranslation(); // Get t function
+  const { t } = useTranslation();
+
   return (
-    <div style={{ padding: '2rem', textAlign: 'center' }}>
-      <h1>{t('pageTitleAbout')}</h1> {/* Use t function */}
-      <p>
-         {/* Example using Trans for more complex elements if needed later */}
-         {/* <Trans i18nKey="someComplexAboutText"> */}
-            Information about Eco Generation will go here.
-         {/* </Trans> */}
-      </p>
+    <div className={styles.aboutPageContainer}>
+      <h1 className={styles.pageTitle}>{t('pageTitleAbout')}</h1>
+
+      {/* Wrapper for the main text content */}
+      <div className={styles.contentSection}>
+        <p>{t('aboutParagraph1')}</p>
+        <p>{t('aboutParagraph2')}</p>
+        <p>{t('aboutParagraph3')}</p>
+      </div>
+
+      {/* Optional: Add an image section later if desired */}
+      {/* <div className={styles.imageSection}>
+        <img src="/path/to/your/image.jpg" alt={t('aboutImageAlt')} />
+      </div> */}
     </div>
   );
 };
