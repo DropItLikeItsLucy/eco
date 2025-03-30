@@ -34,5 +34,17 @@
   "contactFormSubmissionAlert": "გმადლობთ! თქვენი შეტყობინება მიღებულია (სიმულაცია).",
   "aboutParagraph1": "ეკო ჯენერეიშენ წარმოვადგენთ ინოვატორ კომპანიას საქართველოს ბაზარზე და გთავაზობთ 100% ბიოდეგრადირებადი, კომპოსტირებადი მასალისგან დამზადებულ ხის X- ჯერად ჭურჭელს.",
   "aboutParagraph2": "ჩვენ ვაცნობიერებთ კავშირს პლანეტის ჯანმრთელობასა და ერთჯერად პროდუქციას შორის. ყოველდღიურად ვმუშაობთ, რათა მოვახდინოთ ეკოლოგიურად სუფთა პროდუქციის მოხმარების წახალისება.",
-  "aboutParagraph3": "ჩვენი პროდუქტი სერტიფიცირებული საერთაშორისო სტანდარტების შესაბამისად."
+  "aboutParagraph3": "ჩვენი პროდუქტი სერტიფიცირებული საერთაშორისო სტანდარტების შესაბამისად.",
+  "productSpoon100": "Wooden Spoon (Bulk - 100 pcs.)",
+  "productKnife100": "Wooden Knife (Bulk - 100 pcs.)",
+  "productFork100": "Wooden Fork (Bulk - 100 pcs.)",
+  "productKnifePack5": "Wooden Knife (Retail 5 pcs.)",
+  "productSpoonPack5": "Wooden Spoon (Retail 5 pcs.)",
+  "productForkKnifePack5": "Wooden Fork & Knife Set (Retail 5 pcs.)",
+  "productPlaceholder": "Coming Soon",
+  "buttonAddToCart": "Add to Cart",
+  "alertAddedToCart": "Added {{count}} x {{name}} to cart (simulation).",
+  "ariaDecrementQuantity": "Decrement quantity",
+  "ariaIncrementQuantity": "Increment quantity",
+  "ariaQuantityInput": "Product quantity"
   }

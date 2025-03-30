@@ -34,5 +34,17 @@
   "contactFormSubmissionAlert": "Thank you! Your message has been received (simulation).",
   "aboutParagraph1": "We are innovative company and offer you 100% biosegradable and compostable wooden X-usable cutlery",
   "aboutParagraph2": "We realize the link between the health of the planet and the disposable products. Every day we work to advance usage of Eco-friendly products.",
-  "aboutParagraph3": "EcoGeneration’s products are certified by international organizations."
+  "aboutParagraph3": "EcoGeneration’s products are certified by international organizations.",
+  "productSpoon100": "Wooden Spoon (Bulk - 100 pcs.)",
+  "productKnife100": "Wooden Knife (Bulk - 100 pcs.)",
+  "productFork100": "Wooden Fork (Bulk - 100 pcs.)",
+  "productKnifePack5": "Wooden Knife (Retail 5 pcs.)",
+  "productSpoonPack5": "Wooden Spoon (Retail 5 pcs.)",
+  "productForkKnifePack5": "Wooden Fork & Knife Set (Retail 5 pcs.)",
+  "productPlaceholder": "Coming Soon",
+  "buttonAddToCart": "Add to Cart",
+  "alertAddedToCart": "Added {{count}} x {{name}} to cart (simulation).",
+  "ariaDecrementQuantity": "Decrement quantity",
+  "ariaIncrementQuantity": "Increment quantity",
+  "ariaQuantityInput": "Product quantity"
 }

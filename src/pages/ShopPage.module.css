@@ -1,0 +1,44 @@
+/* src/pages/ShopPage.module.css */
+
+.shopPageContainer {
+    max-width: 1200px; /* Adjust max width */
+    margin: 2rem auto 4rem auto;
+    padding: 1rem 2rem;
+  }
+  
+  .pageTitle {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .shopGrid {
+    display: grid;
+    /* Mobile: 1 column */
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  /* Small Tablet: 2 columns */
+  @media (min-width: 576px) {
+    .shopGrid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+  
+  /* Tablet/Small Desktop: 3 columns */
+  @media (min-width: 768px) {
+    .shopGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  /* Desktop: 4 columns */
+  @media (min-width: 1100px) { /* Adjust breakpoint based on max-width */
+    .shopGrid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
