@@ -1,0 +1,64 @@
+/* src/pages/PartnersPage.module.css */
+
+.partnersPageContainer {
+    max-width: 1100px; /* Or your preferred max width */
+    margin: 2rem auto 4rem auto; /* Center container, more bottom margin */
+    padding: 1rem 2rem;
+  }
+  
+  .pageTitle {
+    text-align: center;
+    margin-bottom: 3rem; /* Space below title */
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .logoGrid {
+    display: grid;
+    /* --- Default: 2 columns for mobile --- */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 2rem; /* Row gap, Column gap */
+    align-items: center; /* Vertically center items in their grid cell */
+    justify-items: center; /* Horizontally center items in their grid cell */
+  }
+  
+  /* --- Tablet: 3 columns --- */
+  @media (min-width: 576px) { /* Start changing earlier if needed */
+    .logoGrid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem 2rem;
+    }
+  }
+  
+  /* --- Desktop: 4 columns --- */
+  @media (min-width: 992px) {
+    .logoGrid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3.5rem 2rem;
+    }
+  }
+  
+  .logoItem {
+    /* Container for each logo */
+    width: 100%; /* Ensure it takes up grid cell width */
+    display: flex; /* Use flex to easily center image if needed */
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem; /* Optional padding around logo */
+    /* Add transition if you plan hover effects */
+    /* transition: transform 0.2s ease-in-out; */
+  }
+  
+  /* Optional hover effect */
+  /* .logoItem:hover {
+    transform: scale(1.05);
+  } */
+  
+  .logoImage {
+    display: block; /* Remove extra space below image */
+    max-width: 100%; /* Prevent image from exceeding container width */
+    max-height: 60px; /* << KEY: Set a max-height to normalize logo sizes */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure entire logo fits within dimensions without distortion */
+  }
