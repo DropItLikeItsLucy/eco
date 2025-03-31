@@ -46,5 +46,8 @@
   "alertAddedToCart": "Added {{count}} x {{name}} to cart (simulation).",
   "ariaDecrementQuantity": "Decrement quantity",
   "ariaIncrementQuantity": "Increment quantity",
-  "ariaQuantityInput": "Product quantity"
+  "ariaQuantityInput": "Product quantity",
+  "productNotFound": "productNotFound",
+  "buttonBackToShop": "buttonBackToShop",
+  "productDescriptionTitle": "productDescriptionTitle"
   }

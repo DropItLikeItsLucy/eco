@@ -1,6 +1,7 @@
 // src/pages/ShopPage.tsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import ProductCard, { Product } from '../components/ProductCard'; // Import component and type
 import styles from './ShopPage.module.css'; // We'll create this
 
@@ -34,11 +35,16 @@ const ShopPage: React.FC = () => {
 
       <div className={styles.shopGrid}>
         {sampleProducts.map(product => (
-          <ProductCard
+            <Link
             key={product.id}
-            product={product}
-            // onAddToCart={handleAddToCart} // Pass handler later
-          />
+            to={`/products/${product.id}`} // Dynamic link to PDP
+            className={styles.productLink} // Add class for potential styling
+            >
+            <ProductCard
+                product={product}
+                // No onImageClick needed here anymore
+            />
+            </Link>
         ))}
       </div>
     </div>

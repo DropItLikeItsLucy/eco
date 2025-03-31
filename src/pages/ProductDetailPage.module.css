@@ -1,0 +1,225 @@
+/* src/pages/ProductDetailPage.module.css */
+
+.detailPageContainer {
+    max-width: 1100px;
+    margin: 2rem auto 4rem auto;
+    padding: 1rem 2rem;
+  }
+  
+  .backButton { /* Style if using back button */
+    background: none;
+    border: none;
+    color: #2c7a4d;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .backButton:hover {
+    text-decoration: underline;
+  }
+  
+  
+  .contentGrid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile: Single column */
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .contentGrid {
+      grid-template-columns: 1fr 1fr; /* Desktop: Two columns */
+      gap: 3rem;
+    }
+  }
+  
+  /* --- Image Gallery --- */
+  .imageGallery {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mainImageContainer {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative; /* For zoom indicator positioning */
+    margin-bottom: 1rem; /* Space before thumbnails */
+  }
+  .mainImageContainer:hover .zoomIndicator { /* Show zoom on hover */
+    opacity: 1;
+  }
+  
+  
+  .mainImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Maintain square aspect ratio */
+    object-fit: contain; /* Fit image within */
+  }
+  
+  .zoomIndicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 1rem;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.2s ease;
+  }
+  
+  
+  .thumbnailContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); /* Responsive thumbnails */
+    gap: 0.5rem;
+  }
+  
+  .thumbnailImage {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover; /* Crop thumbnails to fit square */
+    border: 1px solid #eee;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+  }
+  
+  .thumbnailImage:hover {
+    opacity: 1;
+    border-color: #ccc;
+  }
+  
+  .thumbnailImage.activeThumbnail { /* Example style for active */
+    opacity: 1;
+    border-color: #2c7a4d;
+  }
+  
+  
+  /* --- Details Section --- */
+  .detailsSection {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .productName {
+    font-size: 1.8rem; /* Larger name on detail page */
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #333;
+    line-height: 1.3;
+  }
+  
+  .productPrice {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2c7a4d;
+    margin-bottom: 0.5rem;
+  }
+  
+  .productBasePrice {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+  }
+  
+  .descriptionSection {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  .descriptionSection h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #444;
+  }
+  .descriptionSection p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+  }
+  
+  
+  /* --- Quantity & AddToCart (can reuse some ProductCard styles if desired) --- */
+  .quantitySelector {
+    display: flex;
+    /* justify-content: center; */ /* Align left */
+    align-items: center;
+    margin-bottom: 1.5rem;
+    max-width: 150px; /* Limit width */
+  }
+  
+  .quantityButton {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 0.6rem 1rem; /* Slightly larger */
+    cursor: pointer;
+    font-size: 1.1rem;
+    line-height: 1;
+    transition: background-color 0.2s ease;
+  }
+  .quantityButton:hover {
+    background-color: #e0e0e0;
+  }
+  .quantityButton:first-of-type {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  .quantityButton:last-of-type {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+  
+  .quantityInput {
+    width: 60px; /* Slightly wider */
+    text-align: center;
+    padding: 0.6rem 0.2rem;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+    font-size: 1rem;
+    font-weight: bold;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  .quantityInput::-webkit-outer-spin-button,
+  .quantityInput::-webkit-inner-spin-button {
+    -webkit-appearance: none; margin: 0;
+  }
+  
+  .addToCartButton {
+    /* width: 100%; */ /* Don't make full width here */
+    padding: 0.9rem 2rem; /* Larger button */
+    font-size: 1rem;
+    background-color: #2c7a4d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease;
+    align-self: flex-start; /* Align button left */
+  }
+  
+  .addToCartButton:hover {
+    background-color: #225e3a;
+  }
+  
+  .notFound {
+      text-align: center;
+      padding: 4rem 1rem;
+      font-size: 1.2rem;
+      color: #777;
+  }

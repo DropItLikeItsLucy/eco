@@ -42,3 +42,14 @@
       grid-template-columns: repeat(4, 1fr);
     }
   }
+  .productLink {
+    display: block; /* Make the link behave like a block container */
+    text-decoration: none; /* Remove default link underline */
+    color: inherit; /* Inherit text color from parent */
+    height: 100%; /* Make link fill grid cell height if needed */
+  }
+  
+  /* Ensure the card inside the link still behaves correctly */
+  .productLink > div { /* Targets the ProductCard div inside the Link */
+     height: 100%;
+  }
