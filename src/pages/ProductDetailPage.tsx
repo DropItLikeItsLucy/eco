@@ -12,6 +12,8 @@ import { sampleProducts } from './ShopPage'; // Assuming sampleProducts is expor
 
 // --- Lightbox ---
 import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
 // Optional plugins can be added here too
 // import "yet-another-react-lightbox/dist/styles.css";
 // import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -73,7 +75,7 @@ const ProductDetailPage: React.FC = () => {
   // const slides = product.imageUrls.map(url => ({ src: url }));
 
   // Check if imageUrls exists and has items
-  const mainImageUrl = product.imageUrls && product.imageUrls.length > 0 ? product.imageUrls[0] : '/path/to/placeholder-image.jpg'; // Provide a fallback image
+  const mainImageUrl = product.imageUrls && product.imageUrls.length > 0 ? product.imageUrls[0] : '/images/products/placeholder-image.jpg'; // Provide a fallback image
   const hasImages = product.imageUrls && product.imageUrls.length > 0;
   const hasMultipleImages = hasImages && product.imageUrls.length > 1;
 
@@ -88,29 +90,36 @@ const ProductDetailPage: React.FC = () => {
       <div className={styles.contentGrid}>
         {/* Column 1: Image Gallery */}
         <div className={styles.imageGallery}>
-          <div className={styles.mainImageContainer} onClick={() => handleImageClick(0)}>
-            <img
-              src={product.imageUrls[0]} // Show first image as main
-              alt={t(product.nameKey)}
-              className={styles.mainImage}
-            />
-             {/* Optional: Add a zoom icon overlay */}
-             <div className={styles.zoomIndicator}>🔍</div>
-          </div>
+        <div className={styles.mainImageContainer} onClick={() => hasImages && handleImageClick(0)}>
+          <img
+            src={mainImageUrl} // Use the safe URL
+            alt={t(product.nameKey)}
+            className={styles.mainImage}
+          />
+          {/* Optional: Add a zoom icon overlay */}
+          {hasImages && <div className={styles.zoomIndicator}>🔍</div>} {/* Only show if there's an image */}
+        </div>
           {/* Optional: Thumbnails (render if more than 1 image) */}
-          {product.imageUrls.length > 1 && (
-             <div className={styles.thumbnailContainer}>
-               {product.imageUrls.map((url, index) => (
-                 <img
-                   key={index}
-                   src={url}
-                   alt={`${t(product.nameKey)} - view ${index + 1}`}
-                   className={`${styles.thumbnailImage} ${index === 0 ? styles.activeThumbnail : ''}`} // Style active thumbnail differently?
-                   onClick={() => handleImageClick(index)} // Open lightbox at specific image
-                 />
-               ))}
-             </div>
-           )}
+          {hasMultipleImages && (
+    <div className={styles.thumbnailContainer}>
+      {product.imageUrls.map((url, index) => (
+        // ---> ADD THIS IMG TAG <---
+        <img
+          key={index}
+          src={url}
+          alt={`${t(product.nameKey)} - view ${index + 1}`}
+          // Add a class for styling
+          className={styles.thumbnailImage}
+          // Decide onClick behavior (See Point 3 below)
+          // Option A: Open lightbox at this image's index
+          onClick={() => handleImageClick(index)}
+          // Option B: Implement changing main image (See Point 3)
+          // onClick={() => handleThumbnailClick(index)} // Requires adding handleThumbnailClick
+        />
+        // ---> END OF ADDED IMG TAG <---
+      ))}
+    </div>
+)}
         </div>
 
         {/* Column 2: Product Details */}

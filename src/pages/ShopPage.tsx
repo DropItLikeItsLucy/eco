@@ -6,18 +6,65 @@ import ProductCard, { Product } from '../components/ProductCard'; // Import comp
 import styles from './ShopPage.module.css'; // We'll create this
 
 // Sample Product Data (Replace/expand with your actual data and keys)
-const sampleProducts: Product[] = [
-  { id: 'spoon100', nameKey: 'productSpoon100', imageUrl: '/images/products/spoon-100.jpg', price: 12.00, basePriceUnit: 'GEL 0.12 / 1pc' },
-  { id: 'knife100', nameKey: 'productKnife100', imageUrl: '/images/products/knife-100.jpg', price: 16.00, basePriceUnit: 'GEL 0.16 / 1pc' },
-  { id: 'fork100', nameKey: 'productFork100', imageUrl: '/images/products/fork-100.jpg', price: 16.00, basePriceUnit: 'GEL 0.16 / 1pc' },
-  // Add placeholder for 4th item in first row if needed based on image
-  { id: 'placeholder1', nameKey: 'productPlaceholder', imageUrl: '/images/products/placeholder.png', price: 0.00 },
-
-  { id: 'knife5', nameKey: 'productKnifePack5', imageUrl: '/images/products/knife-pack.png', price: 2.30 },
-  { id: 'spoon5', nameKey: 'productSpoonPack5', imageUrl: '/images/products/spoon-pack.jpg', price: 2.30 },
-  { id: 'forknife5', nameKey: 'productForkKnifePack5', imageUrl: '/images/products/fork-knife-pack.jpg', price: 2.30 },
-   // Add placeholder for 4th item in second row if needed
-  { id: 'placeholder2', nameKey: 'productPlaceholder', imageUrl: '/images/products/placeholder.png', price: 0.00 },
+export const sampleProducts: Product[] = [
+  {
+    id: 'spoon100',
+    nameKey: 'productSpoon100',
+    imageUrls: ['/images/products/spoon-100.jpg'], // <-- Now an array
+    price: 12.00,
+    basePriceUnit: 'GEL 0.12 / 1pc'
+  },
+  {
+    id: 'knife100',
+    nameKey: 'productKnife100',
+    imageUrls: ['/images/products/knife-100.jpg'], // <-- Now an array
+    price: 16.00,
+    basePriceUnit: 'GEL 0.16 / 1pc'
+  },
+  {
+    id: 'fork100',
+    nameKey: 'productFork100',
+    imageUrls: ['/images/products/fork-100.jpg'], // <-- Now an array
+    price: 16.00,
+    basePriceUnit: 'GEL 0.16 / 1pc'
+  },
+  {
+    id: 'placeholder1',
+    nameKey: 'productPlaceholder',
+    imageUrls: ['/images/products/placeholder.png'], // <-- Now an array
+    price: 0.00
+  },
+  {
+    id: 'knife5',
+    nameKey: 'productKnifePack5',
+    imageUrls: ['/images/products/knife-pack.png'], // <-- Now an array
+    price: 2.30
+  },
+  {
+    id: 'spoon5',
+    nameKey: 'productSpoonPack5',
+    imageUrls: ['/images/products/spoon-pack.jpg'], // <-- Now an array
+    price: 2.30
+  },
+  {
+    id: 'forknife5',
+    nameKey: 'productForkKnifePack5',
+    imageUrls: ['/images/products/fork-knife-pack.jpg'], // <-- Now an array
+    price: 2.30
+  },
+  {
+    id: 'placeholder2',
+    nameKey: 'productPlaceholder',
+    imageUrls: ['/images/products/placeholder.png'], // <-- Now an array
+    price: 0.00
+  },
+  // Example: If a product HAD multiple images:
+  // {
+  //   id: 'fancySpoon',
+  //   nameKey: 'productFancySpoon',
+  //   imageUrls: ['/images/products/fancy-spoon-angle1.jpg', '/images/products/fancy-spoon-angle2.jpg', '/images/products/fancy-spoon-box.jpg'], // <-- Array with multiple URLs
+  //   price: 25.00
+  // },
 ];
 
 const ShopPage: React.FC = () => {

@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styles from './ProductCard.module.css'; // We'll create this
+import { Link } from 'react-router-dom';
 
 // Define the structure of a product object (adjust as needed)
 export interface Product {
   id: string | number;
   nameKey: string; // Translation key for the name
-  imageUrl: string; // Path relative to /public
+  imageUrls: string[]; // Path relative to /public
   price: number;
   basePriceUnit?: string; // Optional: e.g., "GEL 0.12 / 1pc"
 }
@@ -50,15 +51,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <div className={styles.productCard}>
+      <Link to={`/product/${product.id}`} className={styles.productLink}>
       <div className={styles.imageContainer}>
         <img
-          src={product.imageUrl}
-          alt={t(product.nameKey)} // Use translated name for alt text
+          src={product.imageUrls && product.imageUrls.length > 0 ? product.imageUrls[0] : '/images/placeholder.png'}
+          alt={t(product.nameKey)}
           className={styles.productImage}
           loading="lazy"
         />
       </div>
-      <h3 className={styles.productName}>{t(product.nameKey)}</h3>
+    </Link>
+      <Link to={`/product/${product.id}`} className={styles.productLink}>
+        <h3 className={styles.productName}>{t(product.nameKey)}</h3>
+      </Link>
       <p className={styles.productPrice}>GEL {product.price.toFixed(2)}</p>
       {product.basePriceUnit && (
         <p className={styles.productBasePrice}>{product.basePriceUnit}</p>
