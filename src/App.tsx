@@ -13,6 +13,7 @@ import ShopPage from './pages/ShopPage';
 import PartnersPage from './pages/PartnersPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -33,6 +34,7 @@ const App: React.FC = () => {
           <Route path="/partners" element={<PartnersPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/product/:productId" element={<ProductDetailPage />} />
           {/* --- --- */}
 
           {/* Optional: Add a 404 Not Found route */}

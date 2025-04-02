@@ -59,9 +59,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           className={styles.productImage}
           loading="lazy"
         />
-      </div>
-    </Link>
-      <Link to={`/product/${product.id}`} className={styles.productLink}>
+      </div>    
         <h3 className={styles.productName}>{t(product.nameKey)}</h3>
       </Link>
       <p className={styles.productPrice}>GEL {product.price.toFixed(2)}</p>

@@ -29,7 +29,7 @@ const ProductDetailPage: React.FC = () => {
   const [quantity, setQuantity] = useState<number>(1);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  const [mainImageIndex, setMainImageIndex] = useState(0);
   // Find the product data when the component mounts or productId changes
   useEffect(() => {
     const foundProduct = sampleProducts.find(p => String(p.id) === productId); // Ensure comparison works (string vs number)
@@ -43,6 +43,7 @@ const ProductDetailPage: React.FC = () => {
     // Reset quantity and image index when product changes
     setQuantity(1);
     setCurrentImageIndex(0);
+    setMainImageIndex(0);
   }, [productId]); // Re-run effect if productId changes
 
   // --- Event Handlers ---
@@ -60,9 +61,14 @@ const ProductDetailPage: React.FC = () => {
     // Add to global cart state here later
   };
 
-  const handleImageClick = (index: number) => {
-    setCurrentImageIndex(index);
-    setLightboxOpen(true);
+  const handleMainImageClick = () => {
+    // Use the existing safety check 'hasImages' defined below
+    if (!hasImages) return;
+    setCurrentImageIndex(mainImageIndex); // Set lightbox start index
+    setLightboxOpen(true); // Open lightbox
+  };
+  const handleThumbnailClick = (index: number) => {
+    setMainImageIndex(index);
   };
 
   // --- Render Logic ---
@@ -81,7 +87,7 @@ const ProductDetailPage: React.FC = () => {
 
   // Prepare slides only if images exist
   const slides = hasImages ? product.imageUrls.map(url => ({ src: url })) : [];
-
+  const currentMainImageUrl = hasImages ? product.imageUrls[mainImageIndex] : '/images/products/placeholder-image.jpg';
   return (
     <div className={styles.detailPageContainer}>
       {/* Optional: Back button */}
@@ -90,36 +96,30 @@ const ProductDetailPage: React.FC = () => {
       <div className={styles.contentGrid}>
         {/* Column 1: Image Gallery */}
         <div className={styles.imageGallery}>
-        <div className={styles.mainImageContainer} onClick={() => hasImages && handleImageClick(0)}>
-          <img
-            src={mainImageUrl} // Use the safe URL
-            alt={t(product.nameKey)}
-            className={styles.mainImage}
-          />
-          {/* Optional: Add a zoom icon overlay */}
-          {hasImages && <div className={styles.zoomIndicator}>🔍</div>} {/* Only show if there's an image */}
-        </div>
+        <div className={styles.mainImageContainer} onClick={handleMainImageClick}>
+            <img
+              src={currentMainImageUrl} // Use the URL based on mainImageIndex state
+              alt={t(product.nameKey)}
+              className={styles.mainImage}
+            />
+            {hasImages && <div className={styles.zoomIndicator}>🔍</div>}
+          </div>
           {/* Optional: Thumbnails (render if more than 1 image) */}
           {hasMultipleImages && (
-    <div className={styles.thumbnailContainer}>
-      {product.imageUrls.map((url, index) => (
-        // ---> ADD THIS IMG TAG <---
-        <img
-          key={index}
-          src={url}
-          alt={`${t(product.nameKey)} - view ${index + 1}`}
-          // Add a class for styling
-          className={styles.thumbnailImage}
-          // Decide onClick behavior (See Point 3 below)
-          // Option A: Open lightbox at this image's index
-          onClick={() => handleImageClick(index)}
-          // Option B: Implement changing main image (See Point 3)
-          // onClick={() => handleThumbnailClick(index)} // Requires adding handleThumbnailClick
-        />
-        // ---> END OF ADDED IMG TAG <---
-      ))}
-    </div>
-)}
+             <div className={styles.thumbnailContainer}>
+               {product.imageUrls.map((url, index) => (
+                 <img
+                   key={index}
+                   src={url}
+                   alt={`${t(product.nameKey)} - view ${index + 1}`}
+                   // Add active class based on mainImageIndex state
+                   className={`${styles.thumbnailImage} ${index === mainImageIndex ? styles.activeThumbnail : ''}`} // Add .activeThumbnail style in CSS
+                   // Change main image on click
+                   onClick={() => handleThumbnailClick(index)}
+                 />
+               ))}
+             </div>
+           )}
         </div>
 
         {/* Column 2: Product Details */}

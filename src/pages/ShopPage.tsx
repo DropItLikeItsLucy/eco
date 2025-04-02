@@ -10,7 +10,7 @@ export const sampleProducts: Product[] = [
   {
     id: 'spoon100',
     nameKey: 'productSpoon100',
-    imageUrls: ['/images/products/spoon-100.jpg'], // <-- Now an array
+    imageUrls: ['/images/products/spoon-100.jpg','/images/products/spoon-100.jpg','/images/products/knife-100.jpg'], // <-- Now an array
     price: 12.00,
     basePriceUnit: 'GEL 0.12 / 1pc'
   },
@@ -24,7 +24,7 @@ export const sampleProducts: Product[] = [
   {
     id: 'fork100',
     nameKey: 'productFork100',
-    imageUrls: ['/images/products/fork-100.jpg'], // <-- Now an array
+    imageUrls: ['/images/products/fork-s.png', '/images/products/fork-100.jpg'], // <-- Now an array
     price: 16.00,
     basePriceUnit: 'GEL 0.16 / 1pc'
   },
