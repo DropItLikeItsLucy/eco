@@ -17,7 +17,7 @@ export const sampleProducts: Product[] = [
   {
     id: 'knife100',
     nameKey: 'productKnife100',
-    imageUrls: ['/images/products/knife-100.jpg'], // <-- Now an array
+    imageUrls: ['/images/products/knife-s.png','/images/products/knife-100p-s.png'], // <-- Now an array
     price: 16.00,
     basePriceUnit: 'GEL 0.16 / 1pc'
   },
