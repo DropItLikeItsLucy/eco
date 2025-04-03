@@ -13,7 +13,7 @@ import { sampleProducts } from './ShopPage'; // Assuming sampleProducts is expor
 // --- Lightbox ---
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-
+import { useCartStore } from '../store/cartStore';
 // Optional plugins can be added here too
 // import "yet-another-react-lightbox/dist/styles.css";
 // import Zoom from "yet-another-react-lightbox/plugins/zoom";
@@ -24,7 +24,7 @@ const ProductDetailPage: React.FC = () => {
   const { t } = useTranslation();
   const { productId } = useParams<{ productId: string }>(); // Get productId from URL
   const navigate = useNavigate(); // Hook for navigation (e.g., back button)
-
+  const { addToCart } = useCartStore();
   const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState<number>(1);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -55,6 +55,7 @@ const ProductDetailPage: React.FC = () => {
   const handleDecrement = () => { setQuantity(prev => (prev > 1 ? prev - 1 : 1)); };
 
   const handleAddToCartClick = () => {
+    addToCart(product.id, quantity);
     if (!product) return;
     console.log(`DETAIL PAGE: Adding ${quantity} of ${t(product.nameKey)} (ID: ${product.id}) to cart.`);
     alert(`${t('alertAddedToCart', { count: quantity, name: t(product.nameKey) })}`);
