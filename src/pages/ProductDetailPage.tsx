@@ -55,10 +55,11 @@ const ProductDetailPage: React.FC = () => {
   const handleDecrement = () => { setQuantity(prev => (prev > 1 ? prev - 1 : 1)); };
 
   const handleAddToCartClick = () => {
-    addToCart(product.id, quantity);
     if (!product) return;
-    console.log(`DETAIL PAGE: Adding ${quantity} of ${t(product.nameKey)} (ID: ${product.id}) to cart.`);
-    alert(`${t('alertAddedToCart', { count: quantity, name: t(product.nameKey) })}`);
+    addToCart(String(product.id), quantity);
+    console.log(`Added ${quantity} of ${product.nameKey} to cart`);
+    //console.log(`DETAIL PAGE: Adding ${quantity} of ${t(product.nameKey)} (ID: ${product.id}) to cart.`);
+    //alert(`${t('alertAddedToCart', { count: quantity, name: t(product.nameKey) })}`);
     // Add to global cart state here later
   };
 
@@ -71,13 +72,41 @@ const ProductDetailPage: React.FC = () => {
   const handleThumbnailClick = (index: number) => {
     setMainImageIndex(index);
   };
-
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setIsLoading(true);
+    const foundProduct = sampleProducts.find(p => String(p.id) === productId);
+    
+    // Simulate API loading delay
+    const timer = setTimeout(() => {
+      if (foundProduct) {
+        setProduct(foundProduct);
+      } else {
+        setProduct(null);
+      }
+      setIsLoading(false);
+    }, 300); // Remove this timeout when using real API
+  
+    return () => clearTimeout(timer);
+  }, [productId]);
+  
+  if (isLoading) {
+    return <div className={styles.loading}>Loading product...</div>;
+  }
   // --- Render Logic ---
   if (!product) {
-    // Optional: Render a loading state while fetching in a real app
-    return <div className={styles.notFound}>{t('productNotFound')}</div>; // Add translation key
+    return (
+      <div className={styles.notFound}>
+        <h2>{t('productNotFound')}</h2>
+        <button 
+          onClick={() => navigate('/shop')} 
+          className={styles.backButton}
+        >
+          {t('buttonBackToShop')}
+        </button>
+      </div>
+    );
   }
-
   // Prepare slides for lightbox
   // const slides = product.imageUrls.map(url => ({ src: url }));
 
@@ -136,7 +165,7 @@ const ProductDetailPage: React.FC = () => {
             <h2>{t('productDescriptionTitle')}</h2>
             <p>{t(product.nameKey + 'Desc', "Default description if key missing...")}</p> {/* Example: Use a specific desc key */}
           </div>
-
+          
 
           <div className={styles.quantitySelector}>
              <button onClick={handleDecrement} className={styles.quantityButton} aria-label={t('ariaDecrementQuantity')}>-</button>
@@ -161,6 +190,7 @@ const ProductDetailPage: React.FC = () => {
         on={{ view: ({ index: newIndex }) => setCurrentImageIndex(newIndex) }}
         // plugins={[Thumbnails, Zoom]} // Add plugins if installed and desired
       />
+      
     </div>
   );
 };
