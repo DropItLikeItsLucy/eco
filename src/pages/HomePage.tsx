@@ -1,6 +1,6 @@
 // src/pages/HomePage.tsx
 import React from 'react';
-import Hero from '../components/Hero'; // Import the Hero component
+import Hero from '../components/Herox'; // Import the Hero component
 
 const HomePage: React.FC = () => {
   
