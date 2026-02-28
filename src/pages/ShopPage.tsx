@@ -68,7 +68,7 @@ export const sampleProducts: Product[] = [
 ];
 
 const ShopPage: React.FC = () => {
-  const { t } = useTranslation();
+  useTranslation()
 
   // Placeholder function for adding to cart (can be passed down later)
   // const handleAddToCart = (product: Product, quantity: number) => {

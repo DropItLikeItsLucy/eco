@@ -27,7 +27,7 @@ const partnersData = [
 ];
 
 const PartnersPage: React.FC = () => {
-  const { t } = useTranslation();
+  useTranslation()
 
   return (
     <div className={styles.partnersPageContainer}>
