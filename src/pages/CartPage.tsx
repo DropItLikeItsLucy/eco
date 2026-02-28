@@ -6,15 +6,17 @@ export default function CartPage() {
   const { cartItems, removeFromCart, updateQuantity, clearCart } = useCartStore();
   
   // Combine cart items with product details
-  const cartWithProducts = cartItems.map(item => {
+  const cartWithProducts = cartItems
+  .map(item => {
     const product = sampleProducts.find(p => p.id === item.productId);
-    return { ...item, product };
-  }).filter(item => item.product); // Filter out any items where product wasn't found
+    return product ? { ...item, product } : null;
+  })
+  .filter((x): x is NonNullable<typeof x> => x !== null);
 
-  const subtotal = cartWithProducts.reduce(
-    (sum, item) => sum + (item.product.price * item.quantity),
-    0
-  );
+const subtotal = cartWithProducts.reduce(
+  (sum, item) => sum + item.product.price * item.quantity,
+  0
+);
 
   return (
     <div className="container mx-auto p-4">
@@ -33,7 +35,7 @@ export default function CartPage() {
             {cartWithProducts.map((item) => (
               <div key={item.productId} className="flex items-center border-b py-4">
                 <img 
-                  src={item.product.image} 
+                  src={item.product.imageUrls?.[0] ?? "/images/placeholder.jpg"}
                   alt={item.product.name} 
                   className="w-20 h-20 object-cover rounded"
                 />

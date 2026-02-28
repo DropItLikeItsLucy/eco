@@ -4,7 +4,6 @@ import './App.css';
 
 // Import the components we just created
 import Header from './components/header';
-// import Hero from './components/Hero';
 import Footer from './components/footer';
 
 import HomePage from './pages/HomePage';

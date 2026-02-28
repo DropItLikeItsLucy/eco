@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Hero.module.css'; // We'll create this next
 import { useTranslation, Trans } from 'react-i18next';
 // Assuming you might add the logo/image later in assets
-import heroBackground from '../assets/hero-bg.jpg'; // Example path
 import logoImage from '../assets/logo.png'; // Example path
 
 const Hero: React.FC = () => {
