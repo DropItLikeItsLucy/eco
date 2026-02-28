@@ -111,7 +111,6 @@ const ProductDetailPage: React.FC = () => {
   // const slides = product.imageUrls.map(url => ({ src: url }));
 
   // Check if imageUrls exists and has items
-  const mainImageUrl = product.imageUrls && product.imageUrls.length > 0 ? product.imageUrls[0] : '/images/products/placeholder-image.jpg'; // Provide a fallback image
   const hasImages = product.imageUrls && product.imageUrls.length > 0;
   const hasMultipleImages = hasImages && product.imageUrls.length > 1;
 

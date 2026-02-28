@@ -1,6 +1,6 @@
 // src/pages/TermsPage.tsx
 import React from 'react';
-import { useTranslation, Trans } from 'react-i18next'; // Import hook
+import { useTranslation } from 'react-i18next'; // Import hook
 
 const TermsPage: React.FC = () => {
   const { t } = useTranslation();
